@@ -1,0 +1,6 @@
+C:\Users\rocco\source\repos\perso\LearningGodot\Scripting\.mono\temp\obj\Tools\Scripting.csprojAssemblyReference.cache
+C:\Users\rocco\source\repos\perso\LearningGodot\Scripting\.mono\temp\obj\Tools\Scripting.csproj.CoreCompileInputs.cache
+C:\Users\rocco\source\repos\perso\LearningGodot\Scripting\.mono\temp\bin\Tools\Scripting.dll
+C:\Users\rocco\source\repos\perso\LearningGodot\Scripting\.mono\temp\bin\Tools\Scripting.pdb
+C:\Users\rocco\source\repos\perso\LearningGodot\Scripting\.mono\temp\obj\Tools\Scripting.dll
+C:\Users\rocco\source\repos\perso\LearningGodot\Scripting\.mono\temp\obj\Tools\Scripting.pdb
