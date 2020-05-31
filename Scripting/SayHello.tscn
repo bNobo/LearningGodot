@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://SayHello.cs" type="Script" id=1]
+[ext_resource path="res://Label.cs" type="Script" id=2]
 
 [node name="Panel" type="Panel"]
 margin_right = 138.0
@@ -16,6 +17,7 @@ margin_top = 4.03997
 margin_right = 91.5429
 margin_bottom = 18.04
 text = "This is a label"
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
