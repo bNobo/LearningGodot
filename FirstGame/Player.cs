@@ -10,6 +10,7 @@ public class Player : Area2D
     public int Speed = 400;
 
     private Vector2 _screenSize;
+    private Vector2 _target;
 
     // Called when the node enters the scene tree for the first time.
     public override void _Ready()
@@ -30,8 +31,17 @@ public class Player : Area2D
     public void Start(Vector2 pos)
     {
         Position = pos;
+        _target = pos;
         Show();
         GetNode<CollisionShape2D>("CollisionShape2D").Disabled = false;
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        if (@event is InputEventScreenTouch eventMouseButton && eventMouseButton.Pressed)
+        {
+            _target = eventMouseButton.Position;
+        }
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -59,6 +69,21 @@ public class Player : Area2D
             velocity.y -= 1;
         }
 
+        if (velocity.Length() == 0)
+        {
+            // No keyboard input, checking the mouse
+            if (Input.IsMouseButtonPressed((int)ButtonList.Left))
+            {
+                _target = GetGlobalMousePosition();
+            }
+
+            // Move towards the target and stop when close.
+            if (Position.DistanceTo(_target) > 30)
+            {
+                velocity = _target - Position;
+            }
+        }
+
         var animatedSprite = GetNode<AnimatedSprite>("AnimatedSprite");
 
         if (velocity.Length() > 0)
@@ -79,7 +104,7 @@ public class Player : Area2D
             y: Mathf.Clamp(Position.y, 0, _screenSize.y)
         );
 
-        if (velocity.x != 0)
+        if (Mathf.Abs(velocity.x) > Mathf.Abs(velocity.y))
         {
             animatedSprite.Animation = "walk";
             animatedSprite.FlipV = false;
